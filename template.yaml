@@ -24,6 +24,9 @@ Globals:
   Function:
     Runtime: python3.8
     Handler: index.lambda_handler
+  Environment:
+    Variables:
+      BUCKET_NAME: !Ref ImageStore
 
 Resources:
 
@@ -54,9 +57,6 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: ./src/post_image
-      Environment:
-        Variables:
-          BUCKET_NAME: !Ref ImageStore
       Policies:
         - S3CrudPolicy:
             BucketName: !Ref ImageStore
@@ -72,9 +72,6 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: ./src/get_images
-      Environment:
-        Variables:
-          BUCKET_NAME: !Ref ImageStore
       Policies:
         - S3CrudPolicy:
             BucketName: !Ref ImageStore
