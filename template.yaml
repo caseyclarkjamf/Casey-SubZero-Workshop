@@ -24,9 +24,9 @@ Globals:
   Function:
     Runtime: python3.8
     Handler: index.lambda_handler
-  Environment:
-    Variables:
-      BUCKET_NAME: !Ref ImageStore
+    Environment:
+      Variables:
+        BUCKET_NAME: !Ref ImageStore
 
 Resources:
 
